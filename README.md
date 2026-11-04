@@ -72,8 +72,24 @@ state file and can be edited by hand:
 Both are served by the client half's toggle. There is no remote RPC: the route
 is tiny and does not need one.
 
+## The whale
+
+One drawing is both the composer chip and the package icon
+(`assets/whale-gold.png`), so the two can never drift apart.
+
+| state | rendering |
+| --- | --- |
+| **off** | the silhouette (`assets/whale-silhouette.png`) used as a CSS mask over `currentColor`: no fill colour of its own, so it follows the host theme |
+| **on** | the full-colour gold artwork |
+
+Both states are inlined into `client.js` as data URIs: the chip is a 16px
+control that must paint on the first frame, and a round trip per state would
+flash an empty button. `assets/` keeps the source PNGs; the constants in
+`client.js` are generated from them.
+
 ## Display
 
 - Title / description: `locale/en.json`, `locale/zh.json` (`meta.title`,
   `meta.description`).
-- Icon: `icon.svg`, exported as `./icon`.
+- Icon: `icon.png` (256×256, the gold whale on a dark tile), exported as
+  `./icon`.
