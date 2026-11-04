@@ -1,0 +1,11 @@
+# dsh-prompt-optimizer —— 发送前把提示词改写一遍。
+#
+# 宿主半侧挂在 agent/pre-step 瀑布上：一条用户消息真正进入模型请求之前，
+# 先用同一个路由跑一次开销很小的改写调用，把口语化的一行字补成结构化提示词。
+# 页面半侧只贡献一个开关（composer 工具行右侧的星标），开关状态存在
+# ~/.dsh/prompt-optimizer/state.json，不走 settings 列，所以改完立刻生效。
+- insert:
+    - id: prompt-optimizer
+      name: dsh-prompt-optimizer
+      config:
+        enabled: false

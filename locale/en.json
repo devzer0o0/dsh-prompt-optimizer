@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Prompt Optimizer",
+    "description": "Rewrites the message you typed into a precise prompt before the model sees it, on the same route, with one click in the composer. The rewritten text is what gets sent, so the transcript always shows what the model actually got."
+  }
+}
