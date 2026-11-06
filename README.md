@@ -12,12 +12,15 @@ model always agree: you never see one thing and send another.
 ## Install
 
 ```sh
-dsh plugin --profile <profile> add dsh-prompt-optimizer
+dsh plugin --profile <profile> add @devzer0o0/dsh-prompt-optimizer
 ```
 
 Or install the prebuilt tarball from the
 [latest release](https://github.com/devzer0o0/dsh-prompt-optimizer/releases/latest)
 through the app's plugin manager. No build step, no `allowBuilds` approval.
+
+Also listed in the plugin catalog:
+[awesome-dsh-plugin.com/p/devzer0o0/dsh-prompt-optimizer](https://awesome-dsh-plugin.com/p/devzer0o0/dsh-prompt-optimizer/).
 
 ## Turning it on
 

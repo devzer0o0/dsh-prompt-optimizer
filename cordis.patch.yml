@@ -6,6 +6,6 @@
 # ~/.dsh/prompt-optimizer/state.json，不走 settings 列，所以改完立刻生效。
 - insert:
     - id: prompt-optimizer
-      name: dsh-prompt-optimizer
+      name: "@devzer0o0/dsh-prompt-optimizer"
       config:
         enabled: false

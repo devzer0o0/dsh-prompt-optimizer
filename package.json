@@ -1,9 +1,20 @@
 {
-  "name": "dsh-prompt-optimizer",
+  "name": "@devzer0o0/dsh-prompt-optimizer",
   "version": "0.1.0",
   "description": "Turns the words you type into the composer into a well-formed prompt before the model ever sees them, using a cheap side call on the same route.",
   "type": "module",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devzer0o0/dsh-prompt-optimizer.git"
+  },
+  "homepage": "https://awesome-dsh-plugin.com/p/devzer0o0/dsh-prompt-optimizer/",
+  "bugs": {
+    "url": "https://github.com/devzer0o0/dsh-prompt-optimizer/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",
