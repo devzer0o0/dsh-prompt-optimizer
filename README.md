@@ -12,7 +12,7 @@ model always agree: you never see one thing and send another.
 ## Install
 
 ```sh
-dsh plugin --profile <profile> add @devzer0o0/dsh-prompt-optimizer
+dsh plugin --profile <profile> add @feiyu999/dsh-prompt-optimizer
 ```
 
 Or install the prebuilt tarball from the
