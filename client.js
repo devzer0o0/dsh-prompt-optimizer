@@ -11,7 +11,26 @@
  * selector or the mic. Nothing is drawn outside the component.
  */
 
-window.__ModuleLoader__.load({
+/*
+ * Register at most once.
+ *
+ * `__ModuleLoader__.load({ id })` throws "duplicate factory registration" when
+ * the same id arrives twice, and the bundle really can be executed twice: the
+ * loader walks whatever module identities the profile has, so a package that is
+ * reachable under two names (an unscoped link left beside a scoped one, a
+ * rename that did not remove the old entry) runs this file once per name. The
+ * throw is not caught anywhere, so the duplicate takes the whole plugin down
+ * and the app boots with "1 entry did not activate".
+ *
+ * The guard makes the second execution a no-op instead of a crash. It lives on
+ * `window` and declares nothing at top level on purpose: a second execution
+ * shares this global scope, so even `const ID = …` would throw "already
+ * declared" before the guard could run.
+ */
+if (window.__dshPromptOptimizerClientLoaded__ !== true) {
+  window.__dshPromptOptimizerClientLoaded__ = true
+
+  window.__ModuleLoader__.load({
   id: 'dsh-prompt-optimizer',
   factory(require) {
     const React = require('react')
@@ -278,3 +297,5 @@ window.__ModuleLoader__.load({
     }
   },
 })
+}
+
