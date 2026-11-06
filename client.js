@@ -31,7 +31,7 @@ if (window.__dshPromptOptimizerClientLoaded__ !== true) {
   window.__dshPromptOptimizerClientLoaded__ = true
 
   window.__ModuleLoader__.load({
-  id: 'dsh-prompt-optimizer',
+  id: '@feiyu999/dsh-prompt-optimizer',
   factory(require) {
     const React = require('react')
     const h = React.createElement

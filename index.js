@@ -25,7 +25,7 @@ import os from 'node:os'
 import { randomUUID } from 'node:crypto'
 
 /** Cordis entry id and package name; both must stay identical to the patch row. */
-export const name = 'dsh-prompt-optimizer'
+export const name = '@feiyu999/dsh-prompt-optimizer'
 
 /** The side call goes through the mounted LLM service. */
 export const inject = ['llm']
