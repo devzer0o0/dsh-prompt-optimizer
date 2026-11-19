@@ -11,8 +11,13 @@ model always agree: you never see one thing and send another.
 
 ## Install
 
+Requires DeepSeek Harness **0.2.2-rc.3** or newer (verified against the desktop
+build of that version; the `agent/pre-step` hook and the
+`conversation.input.right` slot are used as they are documented there).
+
 ```sh
-dsh plugin --profile <profile> add @feiyu999/dsh-prompt-optimizer
+dsh plugin --profile <profile> add \
+  https://github.com/devzer0o0/dsh-prompt-optimizer/releases/latest/download/feiyu999-dsh-prompt-optimizer-0.1.3.tgz
 ```
 
 Or install the prebuilt tarball from the

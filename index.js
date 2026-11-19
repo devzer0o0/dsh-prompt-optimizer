@@ -152,11 +152,23 @@ function isEligible(message, state) {
   return true
 }
 
-/** Resolve the route for the side call without depending on a logged header. */
-function resolveRoute(ctx, state, agent) {
+/**
+ * Resolve the route for the side call without depending on a logged header.
+ * @param ctx - Host context owning the LLM service.
+ * @param state - Current plugin state.
+ * @param agent - The agent this step belongs to.
+ * @param modelSelection - Route the loop chose for this step (dsh >= 0.2).
+ */
+function resolveRoute(ctx, state, agent, modelSelection) {
   if (typeof state.provider === 'string' && state.provider !== ''
     && typeof state.model === 'string' && state.model !== '') {
     return { provider: state.provider, model: state.model }
+  }
+  // The loop's own selection for this step is the route the user is about to
+  // send on, so it outranks a header left over from an earlier request.
+  if (modelSelection !== null && typeof modelSelection === 'object'
+    && typeof modelSelection.provider === 'string' && typeof modelSelection.model === 'string') {
+    return { provider: modelSelection.provider, model: modelSelection.model }
   }
   const header = agent?.session?.requestHeader?.()
   const config = header?.config
@@ -242,7 +254,7 @@ export function apply(ctx) {
   }
 
   ctx.effect(() => {
-    const handler = async ({ agent, messages, signal }, next) => {
+    const handler = async ({ agent, messages, signal, modelSelection }, next) => {
       const decision = await next()
       const current = state.get()
       if (current.enabled !== true) return decision
@@ -253,7 +265,7 @@ export function apply(ctx) {
       )
       if (candidates.length === 0) return decision
 
-      const route = resolveRoute(ctx, current, agent)
+      const route = resolveRoute(ctx, current, agent, modelSelection)
       if (route === undefined) {
         warn('no route available for the rewrite call; sending the text as typed')
         return decision
