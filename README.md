@@ -16,13 +16,18 @@ build of that version; the `agent/pre-step` hook and the
 `conversation.input.right` slot are used as they are documented there).
 
 ```sh
+dsh plugin --profile <profile> add @feiyu999/dsh-prompt-optimizer
+```
+
+Or pin an exact build from the
+[releases page](https://github.com/devzer0o0/dsh-prompt-optimizer/releases):
+
+```sh
 dsh plugin --profile <profile> add \
   https://github.com/devzer0o0/dsh-prompt-optimizer/releases/download/v0.1.4/feiyu999-dsh-prompt-optimizer-0.1.4.tgz
 ```
 
-Or install the prebuilt tarball from the
-[latest release](https://github.com/devzer0o0/dsh-prompt-optimizer/releases/latest)
-through the app's plugin manager. No build step, no `allowBuilds` approval.
+Both paths are prebuilt: no build step, no `allowBuilds` approval.
 
 Also listed in the plugin catalog:
 [awesome-dsh-plugin.com/p/devzer0o0/dsh-prompt-optimizer](https://awesome-dsh-plugin.com/p/devzer0o0/dsh-prompt-optimizer/).
